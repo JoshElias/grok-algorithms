@@ -1,3 +1,3 @@
-module github.com/JoshElias/grok-algorithms
+module binary_search
 
 go 1.22.5

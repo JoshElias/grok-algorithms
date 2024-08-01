@@ -1,4 +1,4 @@
-package binary_search
+package main
 
 func BinarySearch(orderedList []int, item int) (int, bool) {
 	upper := len(orderedList) - 1
