@@ -29,25 +29,33 @@ func QuickSort(arr []int) []int {
 
 	var left []int
 	var right []int
+	var pivots []int
 
 	// Put the smaller and equal values on the left
 	// And the larger ones on the right
-	for _, v := range arr {
-		if v <= pivot {
+	for i, v := range arr {
+		if i == random {
+			continue
+		}
+		if v < pivot {
 			left = append(left, v)
-		} else {
+		} else if v > pivot {
 			right = append(right, v)
+		} else {
+			pivots = append(pivots, v)
 		}
 	}
+
+	pivots = append(pivots, pivot)
 
 	// Sort both sides
 	left = QuickSort(left)
 	right = QuickSort(right)
 
 	// Combine back into a single array
-	sorted := make([]int, 0)
+	sorted := make([]int, 0, arrLen)
 	sorted = append(sorted, left...)
-	sorted = append(sorted, pivot)
-	sorted = append(left, right...)
+	sorted = append(sorted, pivots...)
+	sorted = append(sorted, right...)
 	return sorted
 }
